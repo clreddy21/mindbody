@@ -1,0 +1,14 @@
+.row
+  .col-md-5
+  .col-md-2
+    %h3 Author Details
+
+    %h5= @author.first_name + @author.last_name
+    %h5= @author.dob
+    %br
+    %br
+    %br
+
+    %h3 List of Books
+    - @author.books.each do |book|
+      %h5= book.title

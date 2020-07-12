@@ -1,0 +1,7 @@
+= form_for @book do |form|
+  .row
+    .col-sm-2
+    .col-sm-10
+      .title-alt.mb-40
+        %h3 Create Book
+      = render 'books/book_fields', form: form

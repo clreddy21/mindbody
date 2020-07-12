@@ -1,0 +1,20 @@
+%form.form-horizontal
+  .col-md-8
+    .row{:align => "center"}
+      .form-group
+        %label.col-sm-4.control-label{:for => "title"} First Name
+        .col-sm-8{:align => "center"}
+          = form.text_field :first_name, class: "form-control", id: "first_name", required: true
+    .row{:align => "center"}
+      .form-group
+        %label.col-sm-4.control-label{:for => "title"} Last Name
+        .col-sm-8{:align => "center"}
+          = form.text_field :last_name, class: "form-control", id: "last_name", required: true
+    .row{:align => "center"}
+      .form-group
+        %label.col-sm-4.control-label{:for => "title"} DOB
+        .col-sm-8{:align => "center"}
+          = form.date_field :dob, class: "form-control", id: "dob", required: true, value: @author.dob
+    %hr
+      %p{:align => "center"}
+        %input.btn.btn-info{:type => "submit", :value => "Submit"}

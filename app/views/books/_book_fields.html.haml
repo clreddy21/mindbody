@@ -1,0 +1,17 @@
+%form.form-horizontal
+  .col-md-8
+    .row{:align => "center"}
+      .form-group
+        %label.col-sm-4.control-label{:for => "title"} Title*
+        .col-sm-8{:align => "center"}
+          = form.text_field :title, class: "form-control", id: "title", required: true
+    .row{:align => "center"}
+      .form-group
+        %label.col-sm-4.control-label{:for => "title"} Authors*
+        .col-sm-8{:align => "center"}
+          = form.collection_check_boxes :author_ids, Author.all, :id, :last_name
+
+          -# = form.select(:authors, options_for_select(Author.order(:last_name).collect{|author| [ author.last_name, author.id]}, @book.authors), {}, {class: "form-control", id: "authors", required: true, multiple: true})
+    %hr
+      %p{:align => "center"}
+        %input.btn.btn-info{:type => "submit", :value => "Submit"}

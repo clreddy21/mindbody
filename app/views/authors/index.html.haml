@@ -1,0 +1,28 @@
+.content
+  .row
+    .col-md-3
+    .col-md-4
+      %h2= link_to 'Go to Books', books_path
+  .col-md-3
+  .col-md-6
+    %br
+    %a.pull-right.btn.btn-info{:href => new_author_path} Create Author
+    %br
+    %br
+    %br
+    %table.table.table-striped.table-bordered.customer-table
+      %thead
+        %tr
+          %th First Name
+          %th Last Name
+          %th DOB
+          %th Edit
+          %th Delete
+      %tbody
+        - @authors.each do |author|
+          %tr
+            %td= link_to author.first_name, author_path(author)
+            %td= author.last_name
+            %td= author.dob
+            %td= link_to "Edit", edit_author_path(author.id)
+            %td= link_to "Delete", author_path(author), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }
